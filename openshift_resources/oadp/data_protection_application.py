@@ -17,21 +17,21 @@ class DataProtectionApplication(NamespacedResource):
         teardown=True,
         timeout=FOUR_MINUTES,
         privileged_client=None,
-        yaml_file=None,
+        resource_dict=None,
         delete_timeout=None,
         **kwargs):
         super().__init__(
             name=name,
+            namespace=namespace,
             client=client,
             teardown=teardown,
             timeout=timeout,
             privileged_client=privileged_client,
-            yaml_file=yaml_file,
             delete_timeout=delete_timeout,
             **kwargs,
         )
+        self.resource_dict = resource_dict
 
-    def wait_for_reconciliation(self):
-        LOGGER.info(f"[DUMMY]waiting for {self.name} reconciliation")
+
 
 
